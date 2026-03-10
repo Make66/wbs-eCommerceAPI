@@ -1,20 +1,23 @@
+Status Legend:
+⬜ Not Started | ⏳ In Progress | ✅ Complete
+
 ## Project Overview
 
 | ID | Functional Requirement | Description | Status |
 | :-- | :-- | :-- | :-- |
-| FR001 | Solo Project | Build the backend on your own. | Check |
-| FR002 | Follow Group-Work Guidelines | Adhere to the bootcamp's teamwork practices throughout. | Check |
-| FR003 | Single Public Repository | Use one public GitHub repo for the team; do not add instructors as collaborators. | Check |
-| FR004 | PR-Only to main | All changes land on main via Pull Requests. | Check |
+| FR001 | Solo Project | Build the backend on your own. | Complete |
+| FR002 | Follow Group-Work Guidelines | Adhere to the bootcamp's teamwork practices throughout. | Complete |
+| FR003 | Single Public Repository | Use one public GitHub repo for the team; do not add instructors as collaborators. | Complete |
+| FR004 | PR-Only to main | All changes land on main via Pull Requests. | Complete |
 
 ## Setup \& Architecture
 
 | ID | Functional Requirement | Description | Status |
 | :-- | :-- | :-- | :-- |
-| FR005 | Express + TypeScript Bootstrap | You can start from [here](https://github.com/WebDev-WBSCodingSchool/wbs-node-ts-template) | Check |
-| FR006 | MongoDB (Atlas or local) | Provision a MongoDB database (e.g., MongoDB Atlas) and manage the connection string via environment variables. | Check |
-| FR007 | Mongoose Integration | Connect to MongoDB with Mongoose and expose a ready connection before starting the HTTP server. | Check |
-| FR008 | Project Structure (TypeScript) | Follow the prescribed folders: `src/db/index.ts`, `src/controllers/*.ts`, `src/middleware/*.ts`, `src/models/*.ts`, `src/routes/*.ts`, `src/schemas/*.ts`, `src/app.ts`. | Check |
+| FR005 | Express + TypeScript Bootstrap | You can start from [here](https://github.com/WebDev-WBSCodingSchool/wbs-node-ts-template) | Complete |
+| FR006 | MongoDB (Atlas or local) | Provision a MongoDB database (e.g., MongoDB Atlas) and manage the connection string via environment variables. | Complete |
+| FR007 | Mongoose Integration | Connect to MongoDB with Mongoose and expose a ready connection before starting the HTTP server. | Complete |
+| FR008 | Project Structure (TypeScript) | Follow the prescribed folders: `src/db/index.ts`, `src/controllers/*.ts`, `src/middleware/*.ts`, `src/models/*.ts`, `src/routes/*.ts`, `src/schemas/*.ts`, `src/app.ts`. | Complete |
 | FR009 | Zod Validation | Define Zod schemas for request body/params/query per resource; validate in routes before controllers. | In Process |
 | FR010 | Common Middleware | Enable JSON parsing, CORS, and centralized error handling with consistent error responses. | Not Started |
 
@@ -22,10 +25,10 @@
 
 | ID | Functional Requirement | Description | Status |
 | :-- | :-- | :-- | :-- |
-| FR011 | User Model | Fields: name (string), email (string), password (string). Ensure unique email at the DB or app layer. | Check |
-| FR012 | Category Model | Fields: name (string, required). | Check |
-| FR013 | Product Model | Fields: name, description, price (number), categoryId (ObjectId ref to Category). | Check |
-| FR014 | Order Model | Fields: userId (ObjectId ref to User), products (array of { productId: ObjectId, quantity: number }), total (number), plus timestamps. | Check |
+| FR011 | User Model | Fields: name (string), email (string), password (string). Ensure unique email at the DB or app layer. | Complete |
+| FR012 | Category Model | Fields: name (string, required). | Complete |
+| FR013 | Product Model | Fields: name, description, price (number), categoryId (ObjectId ref to Category). | Complete |
+| FR014 | Order Model | Fields: userId (ObjectId ref to User), products (array of { productId: ObjectId, quantity: number }), total (number), plus timestamps. | Complete |
 | FR015 | Response Shaping | Exclude sensitive fields (e.g., password) from all API responses; normalize _id to id where returned. | Not Started |
 
 ## Business Rules
