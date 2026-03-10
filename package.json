@@ -1,0 +1,59 @@
+{
+  "name": "wbs-node-ts-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/app.js",
+  "type": "module",
+  "imports": {
+    "#controller": {
+      "development": "./src/controller/index.ts",
+      "default": "./dist/controller/index.js"
+    },
+    "#db": {
+      "development": "./src/db/index.ts",
+      "default": "./dist/db/index.js"
+    },
+    "#middleware": {
+      "development": "./src/middleware/index.ts",
+      "default": "./dist/middleware/index.js"
+    },
+    "#model": {
+      "development": "./src/model/index.ts",
+      "default": "./dist/model/index.js"
+    },
+    "#route": {
+      "development": "./src/route/index.ts",
+      "default": "./dist/route/index.js"
+    },
+    "#schema": {
+      "development": "./src/schema/index.ts",
+      "default": "./dist/schema/index.js"
+    },
+    "#utils": {
+      "development": "./src/utils/index.ts",
+      "default": "./dist/utils/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "node --watch --conditions development src/app.ts",
+    "prebuild": "rm -rf dist",
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node dist/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.10.12",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "@types/express": "^5.0.6",
+    "@types/mongoose": "^5.11.96",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.4",
+    "zod": "^4.3.6"
+  }
+}
