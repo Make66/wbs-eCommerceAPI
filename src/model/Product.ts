@@ -16,8 +16,9 @@ const productSchema = new Schema(
             required: [true, 'Price is required'],
         },
         categoryId: {
-            type: String,
-            required: [true, 'Category ID is required'],
+            type: Schema.Types.ObjectId,
+            ref: "Category",
+            required: [true, "Category is required"],
         }
     },
     {

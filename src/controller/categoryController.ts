@@ -7,13 +7,13 @@ type CategoryInputDTO = z.infer<typeof CategoryInputSchema>;
 type CategoryOutputDTO = z.infer<typeof CategoryOutputSchema>;
 
 export const getCategories: RequestHandler<{}, CategoryOutputDTO[]> = async (req, res) => {
-    const categories = await Category.find();
+    const categories = await Category.find().lean();
     res.json(categories);
 };
 
 export const createCategory: RequestHandler<{}, CategoryOutputDTO, CategoryInputDTO> = async (req, res) => {
     const { name } = req.body;
-    const category = await Category.create({ name,  });
+    const category = await Category.create({ name });
     res.json(category);
 };
 

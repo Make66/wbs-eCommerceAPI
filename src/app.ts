@@ -1,13 +1,26 @@
 console.log('Basic Node + TS scaffolding');
 import express from 'express';
+import cors from 'cors';
 import { categoryRouter, orderRouter, productRouter, userRouter } from '#route';
 import '#db';
-import { errorHandler } from '#middleware';
+import { normalizeResponse, errorHandler } from '#middleware';
 
 const app = express();
 const port = process.env.PORT || 8080;
 
 app.use(express.json());
+app.use(normalizeResponse);
+
+const allowedOrigins = ['http://localhost:5173', 'http://localhost:8080'];
+app.use(cors({
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    }
+}));
 
 app.get('/error', (req, res) => {
     throw Error('Something went wrong', { cause: 400 });

@@ -1,5 +1,5 @@
 import { z } from 'zod/v4';
-import { Types } from 'mongoose';
+import { isValidObjectId, Types } from 'mongoose';
 
 export const ProductInputSchema = z.strictObject({
   name: z
@@ -11,7 +11,8 @@ export const ProductInputSchema = z.strictObject({
   price: z.number({ error: 'Price must be a number' }).positive({ message: 'Price must be a positive number' }),
   categoryId: z
     .string({ error: 'CategoryId must be a string' })
-    .refine((val) => Types.ObjectId.isValid(val), { message: 'CategoryId must be a valid ObjectId' })
+    .refine(val => isValidObjectId(val), { error: 'Invalid category ID' })
+    .transform(val => new Types.ObjectId(val))
 });
 
 export const ProductOutputSchema = z.strictObject({
