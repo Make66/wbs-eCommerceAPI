@@ -29,9 +29,9 @@
       "development": "./src/schema/index.ts",
       "default": "./dist/schema/index.js"
     },
-    "#utils": {
-      "development": "./src/utils/index.ts",
-      "default": "./dist/utils/index.js"
+    "#util": {
+      "development": "./src/util/index.ts",
+      "default": "./dist/util/index.js"
     }
   },
   "scripts": {

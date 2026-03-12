@@ -1,12 +1,14 @@
 import { Router } from 'express';
-import { getProducts, createProducts, getProductById, updateProducts, deleteProduct } from '#controller'; 
+import { getProducts, createProduct, getProductById, updateProduct, deleteProduct } from '#controller'; 
+import { ProductInputSchema } from '#schema';
+import { productExists, validateBodyZod } from '#middleware';
 
 const productRouter = Router();
 
 productRouter.get('/', getProducts);
-productRouter.post('/', validateBodyZod(productInputSchema), createProducts);
+productRouter.post('/', validateBodyZod(ProductInputSchema), createProduct);
 productRouter.get('/:id', productExists, getProductById);
-productRouter.put('/:id', validateBodyZod(productInputSchema), productExists, updateProducts);
-productRouter.delete('/:id', userExists, deleteUser);
+productRouter.put('/:id', validateBodyZod(ProductInputSchema), productExists, updateProduct);
+productRouter.delete('/:id', productExists, deleteProduct);
 
-export default userRouter;
+export default productRouter;

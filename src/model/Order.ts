@@ -8,13 +8,11 @@ const orderSchema = new Schema(
         },
         products: [
             {
-                productId: Schema.Types.ObjectId,
-                quantity: {
-                    type: Number
-                }
+                productId: { type: Schema.Types.ObjectId, required: true },
+                quantity: { type: Number, required: true }
             }
         ],
-        total: Number
+        total: { type: Number, required: [true, 'Total is required'] }
     },
     {
         timestamps: true

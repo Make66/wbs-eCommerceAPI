@@ -1,5 +1,5 @@
 import { Schema, model } from 'mongoose';
-const categorySchema = new Schema(
+const CategorySchema = new Schema(
     {
         name: {
             type: String,
@@ -8,10 +8,10 @@ const categorySchema = new Schema(
         },
     },
     {
-        timestamps: false
+        timestamps: true
     }
 );
 
-const Category = model('Category', categorySchema);
+const Category = model('Category', CategorySchema);
 export type CategoryDocumentType = InstanceType<typeof Category>;
 export default Category;

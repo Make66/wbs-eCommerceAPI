@@ -1,7 +1,7 @@
 import { z } from 'zod/v4';
 import { Types } from 'mongoose';
 
-export const productInputSchema = z.strictObject({
+export const ProductInputSchema = z.strictObject({
   name: z
     .string({ error: 'Product name must be a string' })
     .min(2, { message: 'Product name is required and must be at least 2 characters long' }),
@@ -14,9 +14,9 @@ export const productInputSchema = z.strictObject({
     .refine((val) => Types.ObjectId.isValid(val), { message: 'CategoryId must be a valid ObjectId' })
 });
 
-export const productOutputSchema = z.strictObject({
+export const ProductOutputSchema = z.strictObject({
   _id: z.instanceof(Types.ObjectId),
-  ...productInputSchema.shape,
+  ...ProductInputSchema.shape,
   createdAt: z.date(),
   updatedAt: z.date()
 });

@@ -1,10 +1,10 @@
 import { type RequestHandler } from 'express';
-import { User } from '#model';
-import type { userInputSchema, userOutputSchema } from '#schema';
+import { User, Order } from '#model';
+import type { UserInputSchema, UserOutputSchema } from '#schema';
 import { z } from 'zod/v4';
 
-type UserInputDTO = z.infer<typeof userInputSchema>;
-type UserOutputDTO = z.infer<typeof userOutputSchema>;
+type UserInputDTO = z.infer<typeof UserInputSchema>;
+type UserOutputDTO = z.infer<typeof UserOutputSchema>;
 
 export const getUsers: RequestHandler<{}, UserOutputDTO[]> = async (req, res) => {
     const users = await User.find();
@@ -20,6 +20,7 @@ export const createUser: RequestHandler<{}, UserOutputDTO, UserInputDTO> = async
 };
 
 export const getUserById: RequestHandler<{ id: string }, UserOutputDTO> = async (req, res) => {
+    console.log('getUserById req:', req);
     const user = req.user;
     if (!user) throw new Error('user context lost');
     res.json(user);
@@ -40,8 +41,8 @@ export const updateUser: RequestHandler<{ id: string }, UserOutputDTO, UserInput
 };
 
 export const deleteUser: RequestHandler<{ id: string }> = async (req, res) => {
+    if (!req.user) throw new Error('User not found');
     const user = req.user;
-    if (!user) throw new Error('user context lost');
 
     const session = await User.startSession();
     session.startTransaction();
@@ -49,7 +50,7 @@ export const deleteUser: RequestHandler<{ id: string }> = async (req, res) => {
         const deletedUser = await User.findByIdAndDelete(req.user.id, { session });
         if (!deletedUser) throw new Error('User not found');
 
-        const posts = await Post.deleteMany({ userId: user._id }, { session });
+        const posts = await Order.deleteMany({ userId: user._id }, { session });
         await session.commitTransaction();
         res.json({ message: 'User and associated posts deleted' });
     } catch (error) {

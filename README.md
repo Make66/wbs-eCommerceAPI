@@ -1,5 +1,5 @@
 Status Legend:
-⬜ ⬜ | ⏳ In Progress | ✅ ✅ 
+⬜ Not Started | ⏳ In Progress | ✅ Complete
 
 ## Project Overview
 
