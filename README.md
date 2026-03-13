@@ -36,8 +36,8 @@ Status Legend:
 | ID | Functional Requirement | Description | Status |
 | :-- | :-- | :-- | :-- |
 | FR016 | Product–Category Integrity | Create/Update Product must fail if categoryId does not reference an existing Category. | ✅ |
-| FR017 | Order Integrity | Create/Update Order must fail if userId or any productId does not exist. | ⬜ |
-| FR018 | Order Total Calculation | Compute total from the current product prices × quantities during order create/update on the server. | ⬜ |
+| FR017 | Order Integrity | Create/Update Order must fail if userId or any productId does not exist. | ✅ |
+| FR018 | Order Total Calculation | Compute total from the current product prices × quantities during order create/update on the server. | ✅ |
 
 ## Endpoints (CRUD)
 
@@ -52,4 +52,4 @@ Status Legend:
 
 | ID | Functional Requirement | Description | Status |
 | :-- | :-- | :-- | :-- |
-| FR023 | Swagger UI | Once the entire app is implemented, add documentation with Swagger UI | ⬜ |
+| FR023 | Swagger UI | Once the entire app is implemented, add documentation with Swagger UI | ✅ |
