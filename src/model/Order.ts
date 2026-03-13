@@ -1,6 +1,15 @@
-import { Schema, model } from 'mongoose';
-import type { optional } from 'zod';
-const orderSchema = new Schema(
+import { Document, Schema, model } from 'mongoose';
+import { Types } from 'mongoose';
+
+interface IOrder extends Document {
+    userId: Types.ObjectId;
+    products: { productId: Types.ObjectId; quantity: number }[];
+    total?: number;
+    createdAt: Date;
+    updatedAt: Date;
+}
+
+const orderSchema = new Schema<IOrder>(
     {
         userId: {
             type: Schema.Types.ObjectId,
