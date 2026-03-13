@@ -1,4 +1,5 @@
 import { Schema, model } from 'mongoose';
+import type { optional } from 'zod';
 const orderSchema = new Schema(
     {
         userId: {
@@ -12,7 +13,7 @@ const orderSchema = new Schema(
                 quantity: { type: Number, required: true }
             }
         ],
-        total: { type: Number, required: [true, 'Total is required'] }
+        total: { type: Number, optional: [true, 'Total is optional'] }
     },
     {
         timestamps: true
